@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+  pgadmin4:
+    image: dpage/pgadmin4
+    ports:
+        - 8089:80
+    volumes:
+        - pgadmin4_data:/var/lib/pgadmin
+    environment:
+        PGADMIN_DEFAULT_EMAIL: hogehoge@gmail.com
+        PGADMIN_DEFAULT_PASSWORD: password
+    depends_on:
+      - db
+
+volumes:
+  postgres_volume: 
+  pgadmin4_data:
