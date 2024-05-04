@@ -1,6 +1,26 @@
 version: '3.9'
 
 services:
+  frontend:
+    build:
+      dockerfile: frontend/Dockerfile
+    volumes:
+      - ./frontend:/src
+    command: /bin/bash -c "cd fullstack-develop-example-at-django-nuxtjs && npm run dev"
+    ports:
+      - "3000:3000"
+    tty: true
+  backend:
+    build:
+      dockerfile: backend/Dockerfile
+    volumes:
+      - ./backend:/src
+    command: /bin/bash -c "./manage.py runserver 0.0.0.0:8000 --settings config.settings.development"
+    ports:
+      - "8000:8000"
+    tty: true
+    depends_on:
+      - db
   db:
     image: postgres
     ports:
