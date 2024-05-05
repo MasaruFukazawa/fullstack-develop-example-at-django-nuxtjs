@@ -1,3 +1,3 @@
 <template>
-    <h1>Hello, Nuxt.js!</h1>
+    <h1>Hello, Hello</h1>
 </template>

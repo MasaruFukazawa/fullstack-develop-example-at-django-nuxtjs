@@ -6,7 +6,7 @@ services:
       dockerfile: frontend/Dockerfile
     volumes:
       - ./frontend:/src
-    command: /bin/bash -c "cd fullstack-develop-example-at-django-nuxtjs && npm run dev"
+    #command: /bin/bash -c "cd fullstack-develop-example-at-django-nuxtjs && npm run dev"
     ports:
       - "3000:3000"
     tty: true
