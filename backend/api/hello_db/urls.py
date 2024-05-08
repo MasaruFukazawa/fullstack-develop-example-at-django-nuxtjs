@@ -4,4 +4,4 @@ from django.urls import path
 
 from . import views
 
-urlpatterns = [path("backend/", views.Backend.as_view())]
+urlpatterns = [path("backend/", views.Db.as_view())]
