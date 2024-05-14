@@ -32,3 +32,35 @@ class ProductView(APIView):
         serializer.save()
 
         return Response(serializer.data, status.HTTP_201_CREATED)
+
+
+class PurchaseView(APIView):
+    """
+    仕入操作関するAPI
+    """
+
+    def post(self, request, format=None):
+        """
+        登録用エンドポイント
+        """
+        serializer = PurchaseSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(serializer.data, status.HTTP_201_CREATED)
+
+
+class SalesView(APIView):
+    """
+    売上操作関するAPI
+    """
+
+    def post(self, request, format=None):
+        """
+        登録用エンドポイント
+        """
+        serializer = SalesSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(serializer.data, status.HTTP_201_CREATED)
