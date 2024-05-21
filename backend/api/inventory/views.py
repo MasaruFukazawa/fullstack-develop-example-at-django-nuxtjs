@@ -87,8 +87,8 @@ class PurchaseView(APIView):
         """
         一覧取得用エンドポイント
         """
-        queryset = Product.objects.all()
-        serializer = ProductSerializer(queryset, many=True)
+        queryset = Purchase.objects.all()
+        serializer = PurchaseSerializer(queryset, many=True)
 
         return Response(serializer.data, status.HTTP_200_OK)
 
