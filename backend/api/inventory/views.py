@@ -26,8 +26,13 @@ class ProductView(APIView):
     商品操作に関するAPIView
     """
 
-    authentication_classes = [CustomJWTAuthentication, JWTAuthentication]
-    permission_classes = [IsAuthenticated]
+    authentication_classes = [
+        #CustomJWTAuthentication,
+        #JWTAuthentication
+    ]
+    permission_classes = [
+        #IsAuthenticated
+    ]
 
     def get_object(self, pk):
         try:
